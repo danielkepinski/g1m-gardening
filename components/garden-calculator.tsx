@@ -29,6 +29,9 @@ export default function GardenCalculator() {
   const [areaSqM, setAreaSqM] = useState(0);
   const [service, setService] =
     useState<keyof typeof estimateBands>("Lawn Maintenance");
+  const [searchQuery, setSearchQuery] = useState("");
+  const [searchError, setSearchError] = useState("");
+  const [isSearching, setIsSearching] = useState(false);
 
   useEffect(() => {
     if (!mapContainer.current || mapRef.current) return;
@@ -89,6 +92,49 @@ export default function GardenCalculator() {
     };
   }, []);
 
+  const handleLocationSearch = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+
+    const token = process.env.NEXT_PUBLIC_MAPBOX_TOKEN;
+
+    if (!token || !mapRef.current || !searchQuery.trim()) return;
+
+    setIsSearching(true);
+    setSearchError("");
+
+    try {
+      const response = await fetch(
+        `https://api.mapbox.com/geocoding/v5/mapbox.places/${encodeURIComponent(
+          searchQuery
+        )}.json?access_token=${token}&country=gb&limit=1`
+      );
+
+      if (!response.ok) {
+        throw new Error("Unable to search for that location.");
+      }
+
+      const data = await response.json();
+      const feature = data.features?.[0];
+
+      if (!feature) {
+        setSearchError("No location found. Try a full postcode or address.");
+        return;
+      }
+
+      const [lng, lat] = feature.center;
+
+      mapRef.current.flyTo({
+        center: [lng, lat],
+        zoom: 19,
+        essential: true,
+      });
+    } catch {
+      setSearchError("Unable to search right now. Please try again.");
+    } finally {
+      setIsSearching(false);
+    }
+  };
+
   const sqFt = Math.round(areaSqM * 10.7639);
   const lawnSize = areaSqM < 50 ? "small" : areaSqM <= 150 ? "medium" : "large";
   const currentEstimate = estimateBands[service][lawnSize];
@@ -112,9 +158,37 @@ export default function GardenCalculator() {
           </p>
         </div>
 
+        <div className="mb-6 rounded-3xl border border-slate-200 bg-slate-50 p-4 shadow-sm md:p-5">
+          <form
+            onSubmit={handleLocationSearch}
+            className="flex flex-col gap-3 md:flex-row"
+          >
+            <input
+              type="text"
+              value={searchQuery}
+              onChange={(event) => setSearchQuery(event.target.value)}
+              placeholder="Enter postcode or address"
+              className="min-h-12 flex-1 rounded-2xl border border-slate-300 bg-white px-4 font-bold text-slate-900 outline-none transition focus:border-lime-500"
+            />
+            <button
+              type="submit"
+              disabled={isSearching}
+              className="min-h-12 rounded-2xl bg-lime-500 px-6 text-sm font-black uppercase tracking-wide text-white transition hover:bg-lime-600 disabled:cursor-not-allowed disabled:opacity-60"
+            >
+              {isSearching ? "Searching..." : "Find Property"}
+            </button>
+          </form>
+
+          {searchError && (
+            <p className="mt-3 text-sm font-bold text-red-600">
+              {searchError}
+            </p>
+          )}
+        </div>
+
         <div className="grid gap-6 xl:grid-cols-[1.4fr_420px]">
           <div className="overflow-hidden rounded-3xl border border-slate-200 bg-slate-100 shadow-sm">
-            <div ref={mapContainer} className="h-[420px] md:h-[500px] xl:h-[600px] w-full cursor-crosshair" />
+            <div ref={mapContainer} className="h-[420px] w-full cursor-crosshair md:h-[500px] xl:h-[600px]" />
           </div>
 
           <div className="rounded-3xl border border-slate-200 bg-slate-50 p-6 lg:p-8 shadow-sm xl:sticky xl:top-28 h-fit">
@@ -123,8 +197,8 @@ export default function GardenCalculator() {
             </h3>
 
             <p className="mt-3 text-slate-600">
-              The polygon tool starts automatically. Click around the garden
-              boundary, then click the first point again to finish the shape.
+              Search for a postcode or address, then draw around the lawn area.
+              Click the first point again to finish the shape.
             </p>
 
             <label className="mt-8 block text-sm font-black uppercase tracking-wide text-slate-700">
