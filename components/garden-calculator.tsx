@@ -217,12 +217,12 @@ export default function GardenCalculator() {
               ))}
             </select>
 
-            <div className="mt-8 grid gap-4">
-              <div className="rounded-2xl bg-white p-5">
+            <div className="mt-6 grid grid-cols-2 gap-3">
+              <div className="rounded-2xl bg-white p-4">
                 <p className="text-sm font-bold uppercase tracking-wide text-slate-500">
                   Garden Size
                 </p>
-                <p className="mt-2 text-2xl lg:text-3xl font-black text-slate-900 break-words">
+                <p className="mt-2 text-xl lg:text-2xl font-black text-slate-900 break-words">
                   {areaSqM ? `${areaSqM}m²` : "Draw area"}
                 </p>
                 {areaSqM > 0 && (
@@ -233,11 +233,11 @@ export default function GardenCalculator() {
               </div>
 
               {areaSqM > 0 && (
-                <div className="rounded-2xl bg-white p-5">
+                <div className="rounded-2xl bg-white p-4">
                   <p className="text-sm font-bold uppercase tracking-wide text-slate-500">
                     Lawn Size Category
                   </p>
-                  <p className="mt-2 text-2xl lg:text-3xl font-black text-slate-900">
+                  <p className="mt-2 text-xl lg:text-2xl font-black text-slate-900">
                     {isOversized ? "Extra Large" : currentEstimate.label}
                   </p>
                   <p className="mt-1 font-bold text-slate-500">
@@ -246,7 +246,7 @@ export default function GardenCalculator() {
                 </div>
               )}
 
-              <div className="rounded-2xl bg-[#07130b] p-5 text-white">
+              <div className="col-span-2 rounded-2xl bg-[#07130b] p-5 text-white">
                 <p className="text-sm font-bold uppercase tracking-wide text-lime-300">
                   Rough Estimate
                 </p>
@@ -263,7 +263,7 @@ export default function GardenCalculator() {
               href={`mailto:matt.galloway84@gmail.com?subject=G1M%20Garden%20Quote%20Estimate&body=Service:%20${encodeURIComponent(
                 service
               )}%0AGarden%20size:%20${areaSqM}m²%20/%20${sqFt}%20sq%20ft%0ALawn%20size:%20${isOversized ? "Extra Large" : currentEstimate.label}%20(${isOversized ? "Over 400m²" : currentEstimate.range})%0AEstimate:%20${isOversized ? "Quote needed" : currentEstimate.estimate}`}
-              className="mt-8 inline-flex w-full justify-center rounded-full bg-lime-500 px-8 py-4 text-sm font-black uppercase tracking-wide text-white transition hover:bg-lime-600"
+              className="mt-5 inline-flex w-full justify-center rounded-full bg-lime-500 px-8 py-4 text-sm font-black uppercase tracking-wide text-white transition hover:bg-lime-600"
             >
               Email Estimate
             </a>
