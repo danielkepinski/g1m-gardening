@@ -19,8 +19,8 @@ html {
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #ffffff;
+    --foreground: #171717;
   }
 }
 
@@ -36,4 +36,41 @@ body {
 
 body {
   overflow-x: hidden;
+}
+
+@keyframes mowerIdle {
+  0%,
+  100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+
+  25% {
+    transform: translateY(-1px) rotate(-0.3deg);
+  }
+
+  75% {
+    transform: translateY(1px) rotate(0.3deg);
+  }
+}
+
+@keyframes flamePulse {
+  0%,
+  100% {
+    transform: translateY(-50%) scale(1);
+    opacity: 0.8;
+  }
+
+  50% {
+    transform: translateY(-50%) scale(1.15);
+    opacity: 1;
+  }
+}
+
+.animate-mower {
+  animation: mowerIdle 0.8s infinite;
+}
+
+.animate-flame {
+  animation: flamePulse 0.35s infinite;
+  transform-origin: right center;
 }

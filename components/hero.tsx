@@ -1,69 +1,60 @@
-
-
-import Image from "next/image";
-
 export default function Hero() {
   return (
     <section className="relative isolate min-h-[92vh] overflow-hidden bg-white text-slate-900">
-      <div className="absolute inset-0 -z-20">
-        <Image
-          src="/hero.PNG"
-          alt="G1M Gardening lawn mower logo"
-          fill
-          priority
-          className="object-contain object-center opacity-[0.08] md:object-right md:opacity-[0.12]"
-        />
-      </div>
+      <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_50%_35%,rgba(132,204,22,0.22),transparent_34%)]" />
 
-      <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_20%_20%,rgba(132,204,22,0.15),transparent_35%)]" />
+      <div className="mx-auto flex min-h-[92vh] w-full max-w-7xl flex-col items-center px-6 pb-28 pt-28 text-center sm:px-8 lg:px-10 lg:pb-40">
+        <p className="mb-5 inline-flex rounded-full border border-lime-200 bg-lime-50 px-4 py-2 text-xs font-black uppercase tracking-[0.26em] text-lime-700 sm:text-sm">
+          Lawn Maintenance • Strimming • Free Quotes
+        </p>
 
-      <div className="mx-auto flex min-h-[92vh] w-full max-w-7xl items-center px-6 py-28 sm:px-8 lg:px-10">
-        <div className="max-w-4xl">
-          <p className="mb-5 inline-flex rounded-full border border-lime-200 bg-lime-50 px-4 py-2 text-sm font-bold uppercase tracking-[0.22em] text-lime-700">
-            Premium Gardening & Grounds Care
-          </p>
+        <div className="relative w-full max-w-6xl overflow-hidden rounded-[2rem] border border-lime-100 bg-slate-900 shadow-2xl shadow-lime-900/10">
+          <img
+            src="/grass.jpg"
+            alt="Freshly cut striped lawn"
+            className="h-[280px] w-full object-cover sm:h-[360px] lg:h-[430px]"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/55 via-black/20 to-transparent" />
 
-          <h1 className="max-w-5xl text-5xl font-black uppercase leading-[0.92] tracking-tight sm:text-7xl lg:text-8xl">
-            Green Spaces.
-            <span className="block text-lime-600">Done Right.</span>
-          </h1>
+          <div className="absolute left-6 top-1/2 max-w-md -translate-y-1/2 text-left sm:left-10">
+            <p className="mb-3 text-sm font-black uppercase tracking-[0.25em] text-lime-300">
+              G1M Gardening
+            </p>
+            <h1 className="text-4xl font-black uppercase leading-tight tracking-tight text-white sm:text-5xl lg:text-6xl">
+              Performance Gardening.
+              <span className="block text-lime-300">Powered by G1M.</span>
+            </h1>
 
-          <p className="mt-7 max-w-2xl text-lg leading-8 text-slate-600 sm:text-xl">
-            G1M delivers professional lawn care, garden maintenance, hedge
-            trimming and landscaping with a clean, reliable and high-standard
-            service from start to finish.
-          </p>
-
-          <div className="mt-10 flex flex-col gap-4 sm:flex-row">
-            <a
-              href="#contact"
-              className="inline-flex items-center justify-center rounded-full bg-lime-500 px-8 py-4 text-sm font-black uppercase tracking-wide text-white transition hover:bg-lime-600"
-            >
-              Get a Free Quote
-            </a>
-            <a
-              href="#services"
-              className="inline-flex items-center justify-center rounded-full border border-slate-300 bg-white px-8 py-4 text-sm font-black uppercase tracking-wide text-slate-800 transition hover:border-lime-500 hover:text-lime-600"
-            >
-              View Services
-            </a>
-          </div>
-
-          <div className="mt-12 grid max-w-3xl grid-cols-2 gap-4 sm:grid-cols-4">
-            {[
-              "Lawn Care",
-              "Hedge Trimming",
-              "Landscaping",
-              "Free Quotes",
-            ].map((item) => (
-              <div
-                key={item}
-                className="rounded-2xl border border-slate-200 bg-white p-4 text-center shadow-sm"
+            <div className="mt-6 flex flex-col gap-3 sm:flex-row">
+              <a
+                href="#calculator"
+                className="inline-flex items-center justify-center rounded-full bg-lime-500 px-7 py-3 text-xs font-black uppercase tracking-wide text-white transition hover:bg-lime-600"
               >
-                <p className="text-sm font-bold text-slate-700">{item}</p>
-              </div>
-            ))}
+                Get Online Estimate
+              </a>
+              <a
+                href="#services"
+                className="inline-flex items-center justify-center rounded-full border border-white/35 bg-white/15 px-7 py-3 text-xs font-black uppercase tracking-wide text-white backdrop-blur transition hover:border-lime-300 hover:text-lime-300"
+              >
+                View Services
+              </a>
+            </div>
           </div>
+        </div>
+
+
+        <div className="pointer-events-none absolute bottom-[10px] left-1/2 z-10 w-[82vw] max-w-4xl -translate-x-1/2 sm:bottom-[-10px] lg:bottom-[-30px] lg:left-[63%] lg:w-[48vw]">
+          <img
+            src="/flame2.png"
+            alt=""
+            className="animate-flame absolute left-[-8%] top-[52%] z-0 w-[40%] max-w-[260px] opacity-95"
+          />
+
+          <img
+            src="/mower2.png"
+            alt="G1M racing lawn mower"
+            className="animate-mower relative z-10 w-full drop-shadow-2xl"
+          />
         </div>
       </div>
     </section>

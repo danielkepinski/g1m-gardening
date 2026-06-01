@@ -1,18 +1,19 @@
-
-
 const services = [
   {
     title: "Lawn Maintenance",
+    icon: "/icon1.png",
     description:
       "Regular lawn mowing, edging and tidy-ups to keep your grass looking clean and well cared for.",
   },
   {
     title: "General Gardening",
+    icon: "/icon2.png",
     description:
       "Reliable garden maintenance including weeding, pruning, planting, clearing and seasonal upkeep.",
   },
   {
     title: "Strimming",
+    icon: "/icon3.png",
     description:
       "Neat strimming for borders, edges, overgrown areas and hard-to-reach parts of the garden.",
   },
@@ -35,13 +36,17 @@ export default function Services() {
           </p>
         </div>
 
-        <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+        <div className="grid gap-6 md:grid-cols-3">
           {services.map((service) => (
             <div
               key={service.title}
-              className="group rounded-3xl border border-slate-200 bg-white p-8 transition duration-300 hover:-translate-y-1 hover:border-lime-400 hover:shadow-xl"
+              className="group rounded-3xl border border-slate-200 bg-white p-8 text-center transition duration-300 hover:-translate-y-1 hover:border-lime-400 hover:shadow-xl"
             >
-              <div className="mb-6 h-1.5 w-16 rounded-full bg-lime-400 transition-all group-hover:w-24" />
+              <img
+                src={service.icon}
+                alt=""
+                className="mx-auto mb-6 h-24 w-24 object-contain"
+              />
 
               <h3 className="mb-4 text-2xl font-black text-slate-900">
                 {service.title}

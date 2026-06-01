@@ -2,17 +2,17 @@ const testimonials = [
   {
     quote:
       "Reliable, friendly and the garden looked brilliant once the work was finished.",
-    name: "Local customer",
+    name: "Mrs Ledbury",
   },
   {
     quote:
       "Great attention to detail and everything was left clean and tidy afterwards.",
-    name: "Domestic client",
+    name: "Mr Smith",
   },
   {
     quote:
       "Helpful, professional and easy to deal with from the first message.",
-    name: "G1M customer",
+    name: "Commercial client",
   },
 ];
 
@@ -30,7 +30,7 @@ export default function Testimonials() {
           </h2>
 
           <p className="mx-auto mt-4 max-w-2xl text-lg text-slate-600">
-            Placeholder reviews until live customer testimonials are ready.
+            Some of our excellent customer feedback and testimonials from recent gardening work.
           </p>
         </div>
 

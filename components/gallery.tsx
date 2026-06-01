@@ -1,16 +1,19 @@
 const galleryItems = [
   {
     title: "Lawn Maintenance",
+    image: "/lawn1.jpg",
     description:
       "Clean mowing, edging and regular upkeep for tidy outdoor spaces.",
   },
   {
     title: "General Gardening",
+    image: "/lawn2.jpg",
     description:
       "Reliable garden care including weeding, pruning and seasonal tidy-ups.",
   },
   {
     title: "Strimming",
+    image: "/lawn3.jpg",
     description:
       "Sharp edges, borders and overgrown areas brought back under control.",
   },
@@ -40,11 +43,11 @@ export default function Gallery() {
               key={item.title}
               className="overflow-hidden rounded-3xl border border-slate-200 bg-slate-50 shadow-sm transition hover:-translate-y-1 hover:shadow-xl"
             >
-              <div className="flex aspect-[4/3] items-center justify-center bg-[#07130b] p-8 text-center">
-                <span className="text-2xl font-black uppercase text-lime-300">
-                  {item.title}
-                </span>
-              </div>
+              <img
+                src={item.image}
+                alt={item.title}
+                className="aspect-[4/3] w-full object-cover"
+              />
 
               <div className="p-6">
                 <h3 className="text-xl font-black text-slate-900">
