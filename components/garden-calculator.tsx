@@ -95,7 +95,7 @@ export default function GardenCalculator() {
   const isOversized = areaSqM > 400;
 
   return (
-    <section className="bg-white py-24">
+    <section className="bg-white py-16 lg:py-24">
       <div className="mx-auto max-w-7xl px-6 lg:px-10">
         <div className="mb-10 text-center">
           <p className="mb-3 text-sm font-bold uppercase tracking-[0.25em] text-lime-600">
@@ -112,12 +112,12 @@ export default function GardenCalculator() {
           </p>
         </div>
 
-        <div className="grid gap-8 lg:grid-cols-[1.5fr_1fr]">
+        <div className="grid gap-6 xl:grid-cols-[1.4fr_420px]">
           <div className="overflow-hidden rounded-3xl border border-slate-200 bg-slate-100 shadow-sm">
-            <div ref={mapContainer} className="h-[520px] w-full cursor-crosshair" />
+            <div ref={mapContainer} className="h-[420px] md:h-[500px] xl:h-[600px] w-full cursor-crosshair" />
           </div>
 
-          <div className="rounded-3xl border border-slate-200 bg-slate-50 p-8 shadow-sm">
+          <div className="rounded-3xl border border-slate-200 bg-slate-50 p-6 lg:p-8 shadow-sm xl:sticky xl:top-28 h-fit">
             <h3 className="text-2xl font-black text-slate-900">
               Estimate Details
             </h3>
@@ -148,7 +148,7 @@ export default function GardenCalculator() {
                 <p className="text-sm font-bold uppercase tracking-wide text-slate-500">
                   Garden Size
                 </p>
-                <p className="mt-2 text-3xl font-black text-slate-900">
+                <p className="mt-2 text-2xl lg:text-3xl font-black text-slate-900 break-words">
                   {areaSqM ? `${areaSqM}m²` : "Draw area"}
                 </p>
                 {areaSqM > 0 && (
@@ -163,7 +163,7 @@ export default function GardenCalculator() {
                   <p className="text-sm font-bold uppercase tracking-wide text-slate-500">
                     Lawn Size Category
                   </p>
-                  <p className="mt-2 text-3xl font-black text-slate-900">
+                  <p className="mt-2 text-2xl lg:text-3xl font-black text-slate-900">
                     {isOversized ? "Extra Large" : currentEstimate.label}
                   </p>
                   <p className="mt-1 font-bold text-slate-500">
@@ -176,7 +176,7 @@ export default function GardenCalculator() {
                 <p className="text-sm font-bold uppercase tracking-wide text-lime-300">
                   Rough Estimate
                 </p>
-                <p className="mt-2 text-4xl font-black">
+                <p className="mt-2 text-3xl lg:text-4xl font-black break-words">
                   {areaSqM ? (isOversized ? "Quote needed" : currentEstimate.estimate) : "£—"}
                 </p>
                 <p className="mt-2 text-sm text-white/65">
