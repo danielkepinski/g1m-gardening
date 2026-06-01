@@ -140,40 +140,75 @@ export default function GardenCalculator() {
   const currentEstimate = estimateBands[service][lawnSize];
   const isOversized = areaSqM > 400;
 
+  const statusLabel = areaSqM > 0 ? "Area Measured" : "Ready to Draw";
+  const statusDotClass = areaSqM > 0 ? "bg-lime-500" : "bg-amber-400";
+
   return (
-    <section className="bg-white py-16 lg:py-24">
-      <div className="mx-auto max-w-7xl px-6 lg:px-10">
-        <div className="mb-10 text-center">
-          <p className="mb-3 text-sm font-bold uppercase tracking-[0.25em] text-lime-600">
+    <section id="calculator" className="relative overflow-hidden bg-white py-20 sm:py-24">
+      <div className="absolute inset-x-0 top-0 h-36 bg-gradient-to-b from-lime-50/80 to-transparent" />
+      <div className="absolute right-[-8rem] top-24 h-80 w-80 rounded-full bg-lime-200/20 blur-3xl" />
+
+      <div className="relative mx-auto max-w-7xl px-5 sm:px-8 lg:px-10">
+        <div className="mx-auto mb-10 max-w-3xl text-center sm:mb-12">
+          <p className="mb-4 inline-flex rounded-full border border-lime-200 bg-lime-50 px-4 py-2 text-xs font-black uppercase tracking-[0.22em] text-lime-700 shadow-sm">
             Garden Quote Calculator
           </p>
 
-          <h2 className="text-4xl font-black uppercase text-slate-900 md:text-5xl">
-            Draw Your Garden. Get an Estimate.
+          <h2 className="text-3xl font-black uppercase leading-tight text-slate-950 sm:text-5xl">
+            Draw your lawn. Get a rough estimate.
           </h2>
 
-          <p className="mx-auto mt-4 max-w-2xl text-lg text-slate-600">
-            Use the satellite map to outline your garden and get a rough estimate
-            for lawn maintenance or strimming services.
+          <p className="mx-auto mt-5 max-w-2xl text-base leading-7 text-slate-600 sm:text-lg">
+            Use the satellite map to outline your lawn, choose a service and get an instant guide price before requesting a quote.
           </p>
         </div>
 
-        <div className="mb-6 rounded-3xl border border-slate-200 bg-slate-50 p-4 shadow-sm md:p-5">
+        <div className="mb-6 grid gap-3 sm:grid-cols-4">
+          {["Find Property", "Draw Lawn", "Select Service", "Request Quote"].map(
+            (step, index) => (
+              <div
+                key={step}
+                className="flex items-center gap-3 rounded-2xl border border-lime-100 bg-white px-4 py-3 shadow-sm shadow-lime-900/5"
+              >
+                <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-lime-500 text-sm font-black text-white">
+                  {index + 1}
+                </span>
+                <span className="text-xs font-black uppercase tracking-wide text-slate-700">
+                  {step}
+                </span>
+              </div>
+            )
+          )}
+        </div>
+
+        <div className="mb-6 flex flex-wrap justify-center gap-2 text-xs font-black uppercase tracking-wide text-lime-700">
+          <span className="rounded-full border border-lime-100 bg-lime-50 px-3 py-2">
+            Satellite Measurement Tool
+          </span>
+          <span className="rounded-full border border-lime-100 bg-lime-50 px-3 py-2">
+            Instant Lawn Estimate
+          </span>
+          <span className="rounded-full border border-lime-100 bg-lime-50 px-3 py-2">
+            No Obligation Quote
+          </span>
+        </div>
+
+        <div className="mb-6 rounded-[2rem] border border-lime-100 bg-white p-4 shadow-xl shadow-lime-900/5 md:p-5">
           <form
             onSubmit={handleLocationSearch}
-            className="flex flex-col gap-3 md:flex-row"
+            className="flex flex-col gap-3 sm:flex-row"
           >
             <input
               type="text"
               value={searchQuery}
               onChange={(event) => setSearchQuery(event.target.value)}
               placeholder="Enter postcode or address"
-              className="min-h-12 flex-1 rounded-2xl border border-slate-300 bg-white px-4 font-bold text-slate-900 outline-none transition focus:border-lime-500"
+              className="min-h-12 flex-1 rounded-2xl border border-lime-100 bg-lime-50/40 px-4 font-bold text-slate-900 outline-none transition placeholder:text-slate-400 focus:border-lime-500 focus:bg-white"
             />
             <button
               type="submit"
               disabled={isSearching}
-              className="min-h-12 rounded-2xl bg-lime-500 px-6 text-sm font-black uppercase tracking-wide text-white transition hover:bg-lime-600 disabled:cursor-not-allowed disabled:opacity-60"
+              className="min-h-12 rounded-2xl bg-lime-500 px-6 text-sm font-black uppercase tracking-wide text-white shadow-lg shadow-lime-950/10 transition hover:bg-lime-600 disabled:cursor-not-allowed disabled:opacity-60"
             >
               {isSearching ? "Searching..." : "Find Property"}
             </button>
@@ -186,22 +221,42 @@ export default function GardenCalculator() {
           )}
         </div>
 
-        <div className="grid gap-6 xl:grid-cols-[1.4fr_420px]">
-          <div className="overflow-hidden rounded-3xl border border-slate-200 bg-slate-100 shadow-sm">
+        <div className="grid gap-6 xl:grid-cols-[1.35fr_430px]">
+          <div className="overflow-hidden rounded-[2rem] border border-lime-100 bg-slate-100 shadow-xl shadow-lime-900/5">
+            <div className="flex items-center justify-between gap-4 border-b border-lime-100 bg-white px-5 py-4">
+              <div>
+                <p className="text-xs font-black uppercase tracking-[0.2em] text-lime-700">
+                  Satellite Lawn Mapper
+                </p>
+                <p className="mt-1 text-sm font-bold text-slate-500">
+                  Zoom in, then draw around the lawn area.
+                </p>
+              </div>
+              <div className="hidden rounded-full bg-lime-50 px-3 py-2 text-xs font-black uppercase tracking-wide text-lime-700 sm:block">
+                Draw Mode
+              </div>
+            </div>
             <div ref={mapContainer} className="h-[420px] w-full cursor-crosshair md:h-[500px] xl:h-[600px]" />
           </div>
 
-          <div className="rounded-3xl border border-slate-200 bg-slate-50 p-6 lg:p-8 shadow-sm xl:sticky xl:top-28 h-fit">
-            <h3 className="text-2xl font-black text-slate-900">
-              Estimate Details
-            </h3>
+          <div className="h-fit rounded-[2rem] border border-lime-100 bg-white p-6 shadow-xl shadow-lime-900/5 xl:sticky xl:top-28 lg:p-8">
+            <div className="flex items-start justify-between gap-4">
+              <div>
+                <h3 className="text-2xl font-black uppercase text-slate-950">
+                  Estimate Details
+                </h3>
+                <p className="mt-3 text-slate-600">
+                  Search for a postcode or address, then draw around the lawn area.
+                  Click the first point again to finish the shape.
+                </p>
+              </div>
+              <div className="flex shrink-0 items-center gap-2 rounded-full border border-lime-100 bg-lime-50 px-3 py-2 text-xs font-black uppercase tracking-wide text-lime-700">
+                <span className={`h-2.5 w-2.5 rounded-full ${statusDotClass}`} />
+                {statusLabel}
+              </div>
+            </div>
 
-            <p className="mt-3 text-slate-600">
-              Search for a postcode or address, then draw around the lawn area.
-              Click the first point again to finish the shape.
-            </p>
-
-            <label className="mt-8 block text-sm font-black uppercase tracking-wide text-slate-700">
+            <label className="mt-8 block text-sm font-black uppercase tracking-[0.16em] text-slate-700">
               Service
             </label>
 
@@ -210,7 +265,7 @@ export default function GardenCalculator() {
               onChange={(event) =>
                 setService(event.target.value as keyof typeof estimateBands)
               }
-              className="mt-3 w-full rounded-2xl border border-slate-300 bg-white px-4 py-4 font-bold text-slate-900"
+              className="mt-3 w-full rounded-2xl border border-lime-100 bg-lime-50/40 px-4 py-4 font-bold text-slate-900 outline-none transition focus:border-lime-500 focus:bg-white"
             >
               {Object.keys(estimateBands).map((item) => (
                 <option key={item}>{item}</option>
@@ -218,7 +273,7 @@ export default function GardenCalculator() {
             </select>
 
             <div className="mt-6 grid grid-cols-2 gap-3">
-              <div className="rounded-2xl bg-white p-4">
+              <div className="rounded-2xl border border-lime-100 bg-lime-50/50 p-4">
                 <p className="text-sm font-bold uppercase tracking-wide text-slate-500">
                   Garden Size
                 </p>
@@ -233,7 +288,7 @@ export default function GardenCalculator() {
               </div>
 
               {areaSqM > 0 && (
-                <div className="rounded-2xl bg-white p-4">
+                <div className="rounded-2xl border border-lime-100 bg-lime-50/50 p-4">
                   <p className="text-sm font-bold uppercase tracking-wide text-slate-500">
                     Lawn Size Category
                   </p>
@@ -246,15 +301,15 @@ export default function GardenCalculator() {
                 </div>
               )}
 
-              <div className="col-span-2 rounded-2xl bg-[#07130b] p-5 text-white">
+              <div className="col-span-2 rounded-[1.5rem] bg-[#07130b] p-5 text-white shadow-lg shadow-lime-950/10">
                 <p className="text-sm font-bold uppercase tracking-wide text-lime-300">
-                  Rough Estimate
+                  Estimated Cost
                 </p>
                 <p className="mt-2 text-3xl lg:text-4xl font-black break-words">
                   {areaSqM ? (isOversized ? "Quote needed" : currentEstimate.estimate) : "£—"}
                 </p>
                 <p className="mt-2 text-sm text-white/65">
-                  Final price confirmed after review.
+                  Guide price only. Final quote confirmed after review.
                 </p>
               </div>
             </div>
@@ -263,10 +318,13 @@ export default function GardenCalculator() {
               href={`mailto:matt.galloway84@gmail.com?subject=G1M%20Garden%20Quote%20Estimate&body=Service:%20${encodeURIComponent(
                 service
               )}%0AGarden%20size:%20${areaSqM}m²%20/%20${sqFt}%20sq%20ft%0ALawn%20size:%20${isOversized ? "Extra Large" : currentEstimate.label}%20(${isOversized ? "Over 400m²" : currentEstimate.range})%0AEstimate:%20${isOversized ? "Quote needed" : currentEstimate.estimate}`}
-              className="mt-5 inline-flex w-full justify-center rounded-full bg-lime-500 px-8 py-4 text-sm font-black uppercase tracking-wide text-white transition hover:bg-lime-600"
+              className="mt-5 inline-flex w-full justify-center rounded-full bg-lime-500 px-8 py-4 text-sm font-black uppercase tracking-wide text-white shadow-lg shadow-lime-950/10 transition hover:bg-lime-600"
             >
-              Email Estimate
+              Request This Quote
             </a>
+            <p className="mt-4 text-center text-xs font-bold leading-5 text-slate-500">
+              This tool provides an estimate only. G1M will confirm the final price after reviewing the lawn area and service requirements.
+            </p>
           </div>
         </div>
       </div>
