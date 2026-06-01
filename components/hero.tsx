@@ -14,7 +14,7 @@ export default function Hero() {
             <img
               src="/grass.jpg"
               alt="Freshly cut striped lawn"
-              className="h-[460px] w-full object-cover sm:h-[430px] lg:h-[520px]"
+              className="h-[460px] w-full object-cover sm:h-[560px] md:h-[620px] lg:h-[520px]"
             />
             <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/25 to-black/65 sm:bg-gradient-to-r sm:from-black/65 sm:via-black/25 sm:to-transparent" />
 
@@ -44,7 +44,7 @@ export default function Hero() {
             </div>
           </div>
 
-          <div className="pointer-events-none absolute -bottom-8 left-1/2 z-30 w-[95vw] max-w-[520px] -translate-x-1/2 sm:-bottom-28 sm:max-w-3xl lg:-bottom-36 lg:left-[68%] lg:w-[56vw] lg:max-w-5xl">
+          <div className="pointer-events-none absolute -bottom-8 left-1/2 z-30 w-[80vw] max-w-[440px] -translate-x-1/2 sm:-bottom-12 sm:w-[82vw] sm:max-w-[520px] md:-bottom-8 md:w-[76vw] md:max-w-[560px] max-[900px]:left-[64%] max-[900px]:-bottom-20 max-[900px]:w-[60vw] max-[900px]:max-w-[470px] max-[700px]:left-[68%] max-[700px]:-bottom-28 max-[700px]:w-[54vw] max-[700px]:max-w-[390px] max-[640px]:left-[64%] max-[640px]:-bottom-8 max-[640px]:w-[66vw] max-[640px]:max-w-[360px] lg:-bottom-36 lg:left-[68%] lg:w-[56vw] lg:max-w-5xl">
             <img
               src="/flame2.png"
               alt=""
@@ -54,7 +54,7 @@ export default function Hero() {
             <img
               src="/mower2.png"
               alt="G1M racing lawn mower"
-              className="animate-mower relative z-10 w-full scale-90 sm:scale-100 drop-shadow-2xl"
+              className="animate-mower relative z-10 w-full scale-85 sm:scale-90 md:scale-95 max-[900px]:scale-90 max-[700px]:scale-85 lg:scale-100 drop-shadow-2xl"
             />
           </div>
         </div>
