@@ -13,14 +13,14 @@ export default function Navbar() {
   return (
     <header className="fixed left-0 right-0 top-0 z-50 border-b border-slate-200 bg-white/95 text-slate-900 backdrop-blur-xl">
       <nav className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6 sm:px-8 lg:px-10">
-        <a href="#home" className="flex items-center gap-3" aria-label="G1M home">
-          <span className="relative flex h-12 w-12 items-center justify-center overflow-hidden rounded-full bg-white">
+        <a href="#home" className="flex items-center gap-4" aria-label="G1M home">
+          <span className="relative flex h-20 w-20 items-center justify-center overflow-visible bg-transparent">
             <Image
-              src="/hero.PNG"
+              src="/mower2.png"
               alt="G1M Gardening"
               fill
               priority
-              className="object-contain p-1.5"
+              className="object-contain scale-125"
             />
           </span>
           <span className="leading-none">
