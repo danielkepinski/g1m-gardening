@@ -29,7 +29,15 @@ export default function Footer() {
         </div>
 
         <div className="text-sm font-medium text-slate-500">
-          © {new Date().getFullYear()} G1M Gardening. All rights reserved.
+          <div>© {new Date().getFullYear()} G1M Gardening. All rights reserved.</div>
+          <a
+            href="https://dankepinski.co.uk"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-1 inline-block transition hover:text-lime-700"
+          >
+            Website built by Dan Kepinski
+          </a>
         </div>
       </div>
     </footer>
