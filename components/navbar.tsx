@@ -11,7 +11,7 @@ export default function Navbar() {
     <header className="fixed left-0 right-0 top-0 z-50 border-b border-lime-100 bg-white/90 text-slate-900 shadow-sm shadow-lime-900/5 backdrop-blur-xl">
       <nav className="mx-auto flex h-24 max-w-7xl items-center justify-between px-5 sm:h-28 sm:px-8 lg:px-10">
         <a href="#home" className="group flex items-center" aria-label="G1M home">
-          <span className="relative flex h-20 w-20 shrink-0 items-center justify-center overflow-hidden bg-white transition group-hover:scale-105 sm:h-24 sm:w-24">
+          <span className="relative flex h-24 w-24 shrink-0 items-center justify-center overflow-hidden bg-white transition group-hover:scale-105 sm:h-28 sm:w-28">
             <img
               src="/navlogo.jpg"
               alt="G1M Gardening"
