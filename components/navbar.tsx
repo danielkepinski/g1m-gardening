@@ -13,7 +13,7 @@ export default function Navbar() {
         <a href="#home" className="group flex items-center" aria-label="G1M home">
           <span className="relative flex h-20 w-20 shrink-0 items-center justify-center overflow-hidden bg-white transition group-hover:scale-105 sm:h-24 sm:w-24">
             <img
-              src="/navlogo.png"
+              src="/navlogo.jpg"
               alt="G1M Gardening"
               className="h-full w-full object-contain"
             />
