@@ -43,7 +43,7 @@ export default function FinalCTA() {
               Email
             </p>
             <a
-              href="mailto:matt.galloway84@gmail.com"
+              href="mailto:info@g1more.co.uk"
               className="mt-3 block break-all text-lg font-black text-slate-950 hover:text-lime-700"
             >
               info@g1more.co.uk
