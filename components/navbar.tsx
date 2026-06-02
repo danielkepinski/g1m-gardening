@@ -1,4 +1,3 @@
-import Image from "next/image";
 
 const navItems = [
   { label: "Services", href: "#services" },
@@ -13,13 +12,10 @@ export default function Navbar() {
       <nav className="mx-auto flex h-24 max-w-7xl items-center justify-between px-5 sm:h-28 sm:px-8 lg:px-10">
         <a href="#home" className="group flex items-center" aria-label="G1M home">
           <span className="relative flex h-20 w-20 shrink-0 items-center justify-center overflow-hidden bg-white transition group-hover:scale-105 sm:h-24 sm:w-24">
-            <Image
+            <img
               src="/navlogo1.png"
               alt="G1M Gardening"
-              fill
-              priority
-              sizes="96px"
-              className="object-contain"
+              className="h-full w-full object-contain"
             />
           </span>
         </a>
