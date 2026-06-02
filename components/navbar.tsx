@@ -16,7 +16,7 @@ export default function Navbar() {
         <a href="#home" className="flex items-center gap-4" aria-label="G1M home">
           <span className="relative flex h-20 w-20 items-center justify-center overflow-visible bg-transparent">
             <Image
-              src="/mower2.png"
+              src="/navlogo.png"
               alt="G1M Gardening"
               fill
               priority

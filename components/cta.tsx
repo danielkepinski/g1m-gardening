@@ -46,7 +46,7 @@ export default function FinalCTA() {
               href="mailto:matt.galloway84@gmail.com"
               className="mt-3 block break-all text-lg font-black text-slate-950 hover:text-lime-700"
             >
-              matt.galloway84@gmail.com
+              info@g1more.co.uk
             </a>
           </div>
 
