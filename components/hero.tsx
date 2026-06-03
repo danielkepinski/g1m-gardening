@@ -16,13 +16,13 @@ export default function Hero() {
               alt="Freshly cut striped lawn"
               className="h-[460px] w-full object-cover sm:h-[560px] md:h-[620px] lg:h-[520px]"
             />
-            <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/25 to-black/65 sm:bg-gradient-to-r sm:from-black/65 sm:via-black/25 sm:to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/25 to-black/65 sm:bg-gradient-to-r sm:from-black/65 sm:via-black/25 sm:to-transparent lg:bg-gradient-to-l lg:from-black/65 lg:via-black/25 lg:to-transparent" />
 
-            <div className="absolute inset-x-5 top-7 z-20 text-left sm:inset-x-auto sm:left-10 sm:top-1/2 sm:max-w-md sm:-translate-y-1/2 lg:left-14 lg:max-w-xl">
+            <div className="absolute inset-x-5 top-7 z-20 text-left sm:inset-x-auto sm:left-10 sm:top-1/2 sm:max-w-md sm:-translate-y-1/2 lg:left-auto lg:right-10 lg:max-w-[34rem] xl:right-14">
               <p className="mb-3 text-xs font-black uppercase tracking-[0.25em] text-lime-300 sm:text-sm">
                 G1M Gardening
               </p>
-              <h1 className="text-3xl font-black uppercase leading-tight tracking-tight text-white sm:text-5xl lg:text-6xl">
+              <h1 className="text-3xl font-black uppercase leading-tight tracking-tight text-white sm:text-5xl lg:text-5xl xl:text-6xl">
                 Performance Gardening.
                 <span className="block text-lime-300">Powered by G1M.</span>
               </h1>
@@ -44,17 +44,17 @@ export default function Hero() {
             </div>
           </div>
 
-          <div className="pointer-events-none absolute -bottom-8 left-1/2 z-30 w-[80vw] max-w-[440px] -translate-x-1/2 sm:-bottom-12 sm:w-[82vw] sm:max-w-[520px] md:-bottom-8 md:w-[76vw] md:max-w-[560px] max-[900px]:left-[64%] max-[900px]:-bottom-20 max-[900px]:w-[60vw] max-[900px]:max-w-[470px] max-[700px]:left-[68%] max-[700px]:-bottom-28 max-[700px]:w-[54vw] max-[700px]:max-w-[390px] max-[640px]:left-[64%] max-[640px]:-bottom-8 max-[640px]:w-[66vw] max-[640px]:max-w-[360px] lg:-bottom-36 lg:left-[68%] lg:w-[56vw] lg:max-w-5xl">
+          <div className="pointer-events-none absolute -bottom-8 left-1/2 z-30 w-[80vw] max-w-[440px] -translate-x-1/2 sm:-bottom-12 sm:w-[82vw] sm:max-w-[520px] md:-bottom-8 md:w-[76vw] md:max-w-[560px] max-[900px]:left-[64%] max-[900px]:-bottom-20 max-[900px]:w-[60vw] max-[900px]:max-w-[470px] max-[700px]:left-[68%] max-[700px]:-bottom-28 max-[700px]:w-[54vw] max-[700px]:max-w-[390px] max-[640px]:left-[64%] max-[640px]:-bottom-8 max-[640px]:w-[66vw] max-[640px]:max-w-[360px] lg:-bottom-32 lg:left-[25%] lg:w-[48vw] lg:max-w-[760px] xl:left-[28%] xl:w-[50vw] xl:max-w-[860px]">
             <img
               src="/flame2.png"
               alt=""
-              className="animate-flame absolute right-[-18%] top-[38%] z-0 w-[55%] max-w-[420px] opacity-100 sm:right-[-10%] sm:top-[45%] sm:w-[50%] lg:max-w-[500px]"
+              className="animate-flame absolute right-[-18%] top-[38%] z-0 w-[55%] max-w-[420px] opacity-100 sm:right-[-10%] sm:top-[45%] sm:w-[50%] lg:right-[18%] lg:top-[48%] lg:max-w-[340px] xl:right-[16%] xl:max-w-[400px]"
             />
 
             <img
               src="/mower2.png"
               alt="G1M racing lawn mower"
-              className="animate-mower relative z-10 w-full scale-85 sm:scale-90 md:scale-95 max-[900px]:scale-90 max-[700px]:scale-85 lg:scale-100 drop-shadow-2xl"
+              className="animate-mower relative z-20 w-full scale-85 sm:scale-90 md:scale-95 max-[900px]:scale-90 max-[700px]:scale-85 lg:scale-100 drop-shadow-2xl"
             />
           </div>
         </div>
